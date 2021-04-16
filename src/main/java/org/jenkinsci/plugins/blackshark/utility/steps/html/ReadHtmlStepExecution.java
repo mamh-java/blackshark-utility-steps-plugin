@@ -18,7 +18,7 @@ import static org.apache.commons.lang.StringUtils.isNotBlank;
 public class ReadHtmlStepExecution  extends SynchronousNonBlockingStepExecution<String> {
     private static final long serialVersionUID = 1L;
 
-    private final ReadHtmlStep step;
+    private transient final ReadHtmlStep step;
 
     public ReadHtmlStepExecution(ReadHtmlStep step, @Nonnull StepContext context) {
         super(context);
