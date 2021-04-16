@@ -4,8 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.model.TaskListener;
-import org.jenkinsci.plugins.blackshark.utility.steps.excel.Messages;
-import org.jenkinsci.plugins.blackshark.utility.steps.excel.ReadExcelStepExecution;
+import org.jenkinsci.plugins.blackshark.utility.steps.html.Messages;
 import org.jenkinsci.plugins.workflow.steps.Step;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
 import org.jenkinsci.plugins.workflow.steps.StepDescriptor;
@@ -66,7 +65,7 @@ public class ReadHtmlStep extends Step {
         @Override
         @Nonnull
         public String getDisplayName() {
-            return Messages.ReadExcelStep_DescriptorImpl_displayName();
+            return Messages.ReadHtmlStep_DescriptorImpl_displayName();
         }
     }
 }
