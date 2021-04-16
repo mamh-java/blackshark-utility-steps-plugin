@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
-public class ReadHtmlStepExecution  extends SynchronousNonBlockingStepExecution<String> {
+public class ReadHtmlStepExecution extends SynchronousNonBlockingStepExecution<String> {
     private static final long serialVersionUID = 1L;
 
     private transient final ReadHtmlStep step;
@@ -34,12 +34,13 @@ public class ReadHtmlStepExecution  extends SynchronousNonBlockingStepExecution<
 
         FilePath f = ws.child(step.getFile());
         if (f.exists() && !f.isDirectory()) {
-            try(InputStream is = f.read()){
+            try (InputStream is = f.read()) {
                 String html = IOUtils.toString(is, StandardCharsets.UTF_8);
                 Document document = Jsoup.parse(html);
-                Elements body = document.getElementsByTag("body");
-                String bodyStr = body.html();
-                return bodyStr;
+                Elements body = document.getElementsByTag(step.getTag());
+                if (body != null) {
+                    return body.html();
+                }
             }
         }
         return "";

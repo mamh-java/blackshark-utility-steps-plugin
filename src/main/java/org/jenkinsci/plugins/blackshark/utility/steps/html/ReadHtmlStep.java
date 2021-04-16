@@ -18,6 +18,7 @@ import java.util.Set;
 
 public class ReadHtmlStep extends Step {
     private String file;
+    private String tag;
 
     @DataBoundConstructor
     public ReadHtmlStep() {
@@ -37,6 +38,14 @@ public class ReadHtmlStep extends Step {
         this.file = file;
     }
 
+    public String getTag() {
+        return tag;
+    }
+
+    @DataBoundSetter
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
     @Extension
     public static class DescriptorImpl extends StepDescriptor {
