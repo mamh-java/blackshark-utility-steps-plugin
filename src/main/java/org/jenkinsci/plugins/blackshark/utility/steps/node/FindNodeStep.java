@@ -18,7 +18,8 @@ public class FindNodeStep extends Step {
     private String reg;
 
     @DataBoundConstructor
-    public FindNodeStep() {
+    public FindNodeStep(String reg) {
+        this.reg = reg;
     }
 
     @Override
@@ -34,6 +35,7 @@ public class FindNodeStep extends Step {
     public void setReg(String reg) {
         this.reg = reg;
     }
+
 
     @Extension
     public static class DescriptorImpl extends StepDescriptor {

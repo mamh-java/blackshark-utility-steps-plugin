@@ -18,7 +18,8 @@ public class CheckNodeStep extends Step {
     private String node;
 
     @DataBoundConstructor
-    public CheckNodeStep() {
+    public CheckNodeStep(String node) {
+        this.node = node;
     }
 
     @Override

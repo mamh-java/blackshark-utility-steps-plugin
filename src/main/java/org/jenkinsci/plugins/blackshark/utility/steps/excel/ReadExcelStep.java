@@ -20,7 +20,8 @@ public class ReadExcelStep extends Step {
     private String file;
 
     @DataBoundConstructor
-    public ReadExcelStep() {
+    public ReadExcelStep(String file) {
+        this.file = file;
     }
 
     @Override

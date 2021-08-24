@@ -22,8 +22,9 @@ public class WriteExcelStep extends Step {
     private List<?> list;
 
     @DataBoundConstructor
-    public WriteExcelStep() {
-
+    public WriteExcelStep(String file, List list) {
+        this.file = file;
+        this.list = list;
     }
 
     public String getFile() {

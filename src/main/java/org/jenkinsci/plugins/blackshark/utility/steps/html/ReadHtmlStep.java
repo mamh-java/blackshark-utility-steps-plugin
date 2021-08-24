@@ -20,7 +20,9 @@ public class ReadHtmlStep extends Step {
     private String tag;
 
     @DataBoundConstructor
-    public ReadHtmlStep() {
+    public ReadHtmlStep(String file, String tag) {
+        this.file = file;
+        this.tag = tag;
     }
 
     @Override
