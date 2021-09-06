@@ -1,11 +1,10 @@
 package org.jenkinsci.plugins.blackshark.utility.steps.ini;
 
+import org.apache.commons.configuration.HierarchicalINIConfiguration;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
 import org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution;
-import org.ini4j.ConfigParser;
 
 import javax.annotation.Nonnull;
-import java.nio.file.Paths;
 
 public class ReadIniStepExecution extends SynchronousNonBlockingStepExecution<String> {
     private static final long serialVersionUID = 1L;
@@ -19,17 +18,17 @@ public class ReadIniStepExecution extends SynchronousNonBlockingStepExecution<St
 
     @Override
     protected String run() throws Exception {
-        ConfigParser config = new ConfigParser();
         String file = step.getFile();
         String section = step.getSection();
         String option = step.getOption();
-
-        config.read(Paths.get(file).toFile());
-
-        if (!config.hasSection(section))
+        try{
+            HierarchicalINIConfiguration ini = new HierarchicalINIConfiguration(file);
+            String value = ini.getSection(section).getString(option);
+            return value;
+        }catch (Exception e){
             return "";
+        }
 
-        String value = config.get(section, option);
-        return value;
     }
+
 }
