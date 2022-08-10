@@ -22,9 +22,12 @@ public class CheckNodeStepExecution extends SynchronousNonBlockingStepExecution<
 
     @Override
     protected Boolean run() throws Exception {
-        if(StringUtils.isNotBlank(step.getNode())) {
+        if (StringUtils.isNotBlank(step.getNode())) {
+            if (step.getNode().equals("master")) {
+                return true;
+            }
             Computer computer = Jenkins.get().getComputer(step.getNode());
-            if(computer != null){
+            if (computer != null) {
                 return computer.isOnline();
             }
         }
