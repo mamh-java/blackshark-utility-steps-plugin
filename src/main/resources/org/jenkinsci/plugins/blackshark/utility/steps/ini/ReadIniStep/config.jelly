@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
-    <f:block>
-        <p>获取对应的 section 下面对应的 option 对应的value值,返回 一个字符串</p>
-    </f:block>
+    <f:entry title="${%file.title}" field="file" description="${%file.description}">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="${%section.title}" field="section" description="${%section.description}">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="${%option.title}" field="option" description="${%option.description}">
+        <f:textbox />
+    </f:entry>
 </j:jelly>
 
