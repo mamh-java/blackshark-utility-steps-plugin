@@ -1,0 +1,14 @@
+
+<p>
+    Reads a file in the current working directory
+    <a href="https://toml.io/en/" target="_blank">toml</a> file.
+    The returned object is a normal Map with String keys or a List of primitives or Map.
+</p>
+<p>
+    <strong>Example:</strong><br/>
+    <code><pre>
+    def datas = readTOML file: 'dir/input.toml'
+    assert datas['title'] == 'TOML Example'
+    assert datas.title == 'TOML Example'
+    </pre></code>
+</p>
